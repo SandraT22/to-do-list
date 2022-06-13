@@ -20,6 +20,8 @@ TaskList.prototype.deleteTask = function(id) {
     return false;
   }
   delete this.tasks[id];
+  // $('#' + this.id).remove();
+  $('#' + this.tasks[id]).remove();
   return true;
 };
 
@@ -94,6 +96,7 @@ function attachTaskListeners() {
         const userTaskIdToDelete = $('#deleteTask').val();
         taskList.deleteTask(userTaskIdToDelete);// test to delete a task from the list = completed but the user has to know the ID
         $("#deletion-success-container").append("<p>" + "Task Deleted!" + "</p>");// test to show message letting user know the task was deleted
-       })
+        $('#' + userTaskIdToDelete).remove();// test to remove the deleted ID from the displayed list = completed
+      })
     });
     
