@@ -5,7 +5,6 @@ function TaskList() {
   this.currentId = 0;
 }
 
-
 TaskList.prototype.addTask = function(task) {
   task.id = this.assignId();
   this.tasks[task.id] = task;
@@ -24,8 +23,6 @@ TaskList.prototype.deleteTask = function(id) {
   return true;
 };
 
-
-
 //Business Logic for task
 
 function Task(taskName, dueDate) {
@@ -43,14 +40,6 @@ taskList.addTask(taskOne);
 taskList.tasks[0];
 console.log(taskList.tasks["1"])
 
-TaskList.prototype.taskComplete = function(id) {
-  taskList.tasks[id].completionStatus = true;
-
-}
-
-
-
-
 // Order of operations
 // Display list of existing tasks (include 3 placeholders for demonstration)
 
@@ -60,15 +49,13 @@ TaskList.prototype.taskComplete = function(id) {
 // --> Create a new task with the input value as the task's name
 // --> Append that task (it's name) to the <ul> as a new <li> with an ID value that uses the task's ID
 
-function attachContactListeners() {
+function attachTaskListeners() {
   $('ul').on("click", "li", function() { // test to see if it detects click = complete
-    // taskList.taskComplete(this.id);
     if (taskList.tasks[this.id].completionStatus === false) {  // test to make task as completed 
       console.log(taskList.tasks[this.id].completionStatus);
       taskList.tasks[this.id].completionStatus = true;
       console.log(taskList.tasks[this.id].completionStatus);
       $('#' + this.id).toggleClass("completed");
-      // document.getElementById(this.id).classList.add('complete')
       console.log("Task is now complete!")
       
     } else {
@@ -78,15 +65,14 @@ function attachContactListeners() {
       $('#' + this.id).toggleClass("completed");
       console.log("Task is now incomplete!")
     }
-    // $(`${newTask.id}`).toggleClass("completed");
     });
   }
 
 
 
     $(document).ready(function () {
-      attachContactListeners();
-      $('form').submit(function(event) {
+      attachTaskListeners();
+      $('form#create').submit(function(event) {
         event.preventDefault();
         const userTaskName = $('#new-task').val();// test to gather user input for task name = complete
         const userDate = $('#new-date').val();// test to gather user input for due date = complete
@@ -99,7 +85,15 @@ function attachContactListeners() {
         
         taskList.addTask(newTask);// test to add the task variable to the task list = complete
         
-        $('ul').prepend(`<li id="${newTask.id}">${userTaskName} due on ${userDate}</li>`);// test to make task appear in the ul = complete // test to add id to li = complete
+        $('ul').prepend(`<li id="${newTask.id}">Task ID: ${newTask.id} | Task Description: ${userTaskName} | Task Due Date: ${userDate}</li>`);// test to make task appear in the ul = complete // test to add id to li = complete
+        
       })
+      
+      $("form#delete").submit(function(event) {
+        event.preventDefault();
+        const userTaskIdToDelete = $('#deleteTask').val();
+        taskList.deleteTask(userTaskIdToDelete);// test to delete a task from the list = completed but the user has to know the ID
+        $("#deletion-success-container").append("<p>" + "Task Deleted!" + "</p>");// test to show message letting user know the task was deleted
+       })
     });
     
