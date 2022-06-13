@@ -1,9 +1,46 @@
-.completed {
-  color: red;
+/* * { */
+/* "*" affects the whole page. Use the border to see the changes you're doiung in css.  */
+  /* border: 1px solid red;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} */
+
+
+
+
+
+.completed, .completed:hover {
+  color: lightslategray;
+  text-decoration: line-through;
 }
 li {
   cursor: pointer;
 }
 li:hover {
   text-decoration: underline;
+}
+
+input {
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+}
+
+.warning {
+  color: red;
+  font-size: 2rem;
+}
+
+p {
+  color: rgb(143, 224, 224);
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+ul {
+  background-color: lightblue;
+  min-height: 200px;
+  border-radius: 6px;
+  margin-left: 1rem;
+  padding: 1rem;
 }

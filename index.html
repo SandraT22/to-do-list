@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>To-do List</h1>
+      <h1 class="display-4">To-Do List</h1>
       <form id="create">
         <div class="row">
           <div class="col-md">
@@ -17,35 +17,32 @@
             <input type="text" name="new-task" id="new-task" />
             <div class="row">
               <div class="col-md">
-            <label for="new-date">Enter the due date for your new task in the field below</label>
-            <input type="text" name="new-date" id="new-date" />
-            <button>Submit New Task</button>
-          </div>
-        </div>
-       
-            
-          
-          </div>
-        </div>
-      </form>
-      <div class="row">
-        <div class="col-md">
-          <ul>
-          </ul>
-        </div>
-      </div>
-      <form id="delete">
-          <div class="row">
-            <div class="col-md">
-              <label for="deleteTask">Enter a task ID to permenantly delete that task</label>
-              <input type="text" name="deleteTask" id="deleteTask">
-              <button type="submit">Delete This Item</button>
+                <label for="new-date">Enter the due date for your new task in the field below</label>
+                <input type="text" name="new-date" id="new-date" />
+                <button>Submit New Task</button>
+                <p>To mark task as complete, click on the task.</p>
+              </div>
             </div>
           </div>
-      </form>
-      <div id="deletion-success-container">
-        
       </div>
-    </body>
-  </div>
+    </form>
+    <div class="row">
+      <div class="col-md">
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <form id="delete">
+      <div class="row">
+        <div class="col-md">
+          <label for="deleteTask">Enter a task ID to permenantly delete that task</label>
+          <input type="text" name="deleteTask" id="deleteTask">
+          <button type="submit">Delete This Item</button>
+        </div>
+      </div>
+    </form>
+    <div id="deletion-success-container">
+    </div>
+    </div>
+  </body>
 </html>

@@ -92,9 +92,9 @@ function attachTaskListeners() {
           }, 5000);
 
         } else {
-          $("#deletion-success-container").append("<p>" + "No task exists matching that ID" + "</p>");
+          $("#deletion-success-container").append('<p class="warning">' + 'No task exists matching that ID' + '</p>');
 
-          setInterval(function() {                           // test to remove the message after 5 seconds (5000 miliseconds)
+          setInterval(function() {                           // test to remove the message after 5 seconds (5000 miliseconds) using "setInterval".
             $("#deletion-success-container").remove();
           }, 5000);
 
