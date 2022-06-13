@@ -8,24 +8,44 @@
     <title>To-do-list</title>
   </head>
   <body>
-    <h1>To-do List</h1>
-    <form id="create">
-      <label for="new-task">Enter your new text in the field below</label>
-      <input type="text" name="new-task" id="new-task" />
-      <label for="new-date">Enter the due date for your new task in the field below</label>
-      <input type="text" name="new-date" id="new-date" />
-      <button>Submit New Task</button>
-    </form>
-    <ul>
-    </ul>
-    <form id="delete">
-      <label for="deleteTask">Enter a task ID to permenantly delete that task</label>
-      <input type="text" name="deleteTask" id="deleteTask">
-
-      <button type="submit">Delete This Item</button>
-    </form>
-    <div id="deletion-success-container">
-
-    </div>
-  </body>
+    <div class="container">
+      <h1>To-do List</h1>
+      <form id="create">
+        <div class="row">
+          <div class="col-md">
+            <label for="new-task">Enter your new task in the field below</label>
+            <input type="text" name="new-task" id="new-task" />
+            <div class="row">
+              <div class="col-md">
+            <label for="new-date">Enter the due date for your new task in the field below</label>
+            <input type="text" name="new-date" id="new-date" />
+            <button>Submit New Task</button>
+          </div>
+        </div>
+       
+            
+          
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md">
+          <ul>
+          </ul>
+        </div>
+      </div>
+      <form id="delete">
+          <div class="row">
+            <div class="col-md">
+              <label for="deleteTask">Enter a task ID to permenantly delete that task</label>
+              <input type="text" name="deleteTask" id="deleteTask">
+              <button type="submit">Delete This Item</button>
+            </div>
+          </div>
+      </form>
+      <div id="deletion-success-container">
+        
+      </div>
+    </body>
+  </div>
 </html>

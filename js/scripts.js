@@ -20,7 +20,6 @@ TaskList.prototype.deleteTask = function(id) {
     return false;
   }
   delete this.tasks[id];
-  // $('#' + this.id).remove();
   $('#' + this.tasks[id]).remove();
   return true;
 };
@@ -35,12 +34,10 @@ function Task(taskName, dueDate) {
 
 //UI Logic
 
-console.log(TaskList);
 let taskList = new TaskList();
 let taskOne = new Task("wash dishes", "6/13/22");
 taskList.addTask(taskOne);
 taskList.tasks[0];
-console.log(taskList.tasks["1"])
 
 // Order of operations
 // Display list of existing tasks (include 3 placeholders for demonstration)
@@ -54,18 +51,12 @@ console.log(taskList.tasks["1"])
 function attachTaskListeners() {
   $('ul').on("click", "li", function() { // test to see if it detects click = complete
     if (taskList.tasks[this.id].completionStatus === false) {  // test to make task as completed 
-      console.log(taskList.tasks[this.id].completionStatus);
       taskList.tasks[this.id].completionStatus = true;
-      console.log(taskList.tasks[this.id].completionStatus);
       $('#' + this.id).toggleClass("completed");
-      console.log("Task is now complete!")
       
     } else {
-      console.log(taskList.tasks[this.id].completionStatus);
       taskList.tasks[this.id].completionStatus = false;
-      console.log(taskList.tasks[this.id].completionStatus);
       $('#' + this.id).toggleClass("completed");
-      console.log("Task is now incomplete!")
     }
     });
   }
@@ -78,12 +69,7 @@ function attachTaskListeners() {
         event.preventDefault();
         const userTaskName = $('#new-task').val();// test to gather user input for task name = complete
         const userDate = $('#new-date').val();// test to gather user input for due date = complete
-        console.log(userTaskName);
-        console.log(userDate);
         let newTask = new Task(userTaskName, userDate) //test to set user input to new task variable = complete
-        
-        console.log(newTask)
-        console.log(newTask.id)
         
         taskList.addTask(newTask);// test to add the task variable to the task list = complete
         
@@ -94,9 +80,16 @@ function attachTaskListeners() {
       $("form#delete").submit(function(event) {
         event.preventDefault();
         const userTaskIdToDelete = $('#deleteTask').val();
-        taskList.deleteTask(userTaskIdToDelete);// test to delete a task from the list = completed but the user has to know the ID
-        $("#deletion-success-container").append("<p>" + "Task Deleted!" + "</p>");// test to show message letting user know the task was deleted
-        $('#' + userTaskIdToDelete).remove();// test to remove the deleted ID from the displayed list = completed
+
+        // if (taskList.tasks.includes(userTaskIdToDelete)) {
+        if (taskList.tasks[userTaskIdToDelete]) {
+          taskList.deleteTask(userTaskIdToDelete);    // test to delete a task from the list = completed but the user has to know the ID
+          $("#deletion-success-container").append("<p>" + "Task Deleted!" + "</p>");    // test to show message letting user know the task was deleted
+          $('#' + userTaskIdToDelete).remove();   // test to remove the deleted ID from the displayed list = completed
+        } else {
+          $("#deletion-success-container").append("<p>" + "No task exists matching that ID" + "</p>");
+        }
+
       })
     });
     
