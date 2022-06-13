@@ -1,0 +1,9 @@
+.completed {
+  color: gray;
+}
+li {
+  cursor: pointer;
+}
+li:hover {
+  text-decoration: underline;
+}
