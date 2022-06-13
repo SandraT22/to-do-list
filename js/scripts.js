@@ -86,8 +86,18 @@ function attachTaskListeners() {
           taskList.deleteTask(userTaskIdToDelete);    // test to delete a task from the list = completed but the user has to know the ID
           $("#deletion-success-container").append("<p>" + "Task Deleted!" + "</p>");    // test to show message letting user know the task was deleted
           $('#' + userTaskIdToDelete).remove();   // test to remove the deleted ID from the displayed list = completed
+          
+          setInterval(function() {
+            $("#deletion-success-container").remove();
+          }, 5000);
+
         } else {
           $("#deletion-success-container").append("<p>" + "No task exists matching that ID" + "</p>");
+
+          setInterval(function() {                           // test to remove the message after 5 seconds (5000 miliseconds)
+            $("#deletion-success-container").remove();
+          }, 5000);
+
         }
 
       })
