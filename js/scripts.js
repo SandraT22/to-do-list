@@ -25,7 +25,7 @@ TaskList.prototype.deleteTask = function(id) {
 };
 
 TaskList.prototype.taskComplete = function(id) {
-  return taskList.tasks[id].completionStatus = true;
+  return taskList.tasks[id].completionStatus;
 }
 
 //Business Logic for task
@@ -58,8 +58,13 @@ console.log(taskList.tasks["1"])
 // --> Create a new task with the input value as the task's name
 // --> Append that task (it's name) to the <ul> as a new <li> with an ID value that uses the task's ID
 function attachContactListeners() {
-  $('ul').on("click", "li", function() { // test to see if it detects click
-    console.log("this was clicked", this);
+  $('ul').on("click", "li", function() { // test to see if it detects click = complete
+    taskList.taskComplete(this.id);
+    if (taskList.tasks[this.id].completionStatus === true) {  // test to make task as completed 
+      $("li").toggleClass("complete");
+  
+    }
+    // $(`${newTask.id}`).toggleClass("completed");
     });
     }
 
